@@ -1,3 +1,5 @@
+// "(C) 2024 Joshua Koshy."
+
 using System.Windows;
 
 [assembly: ThemeInfo(

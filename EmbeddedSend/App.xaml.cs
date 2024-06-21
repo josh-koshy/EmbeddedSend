@@ -1,4 +1,6 @@
-﻿using System.Configuration;
+﻿// "(C) 2024 Joshua Koshy."
+
+using System.Configuration;
 using System.Data;
 using System.Windows;
 using EmbeddedSend.Views;
