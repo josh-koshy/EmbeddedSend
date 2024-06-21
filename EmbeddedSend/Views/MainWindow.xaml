@@ -1,12 +1,13 @@
-﻿<Window x:Class="EmbeddedSend.MainWindow"
+﻿<Window x:Class="EmbeddedSend.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:EmbeddedSend"
+        xmlns:local="clr-namespace:EmbeddedSend.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <TextBlock x:Name="HelloWorld_Text" FontSize="20" Text="{Binding TestString}" TextAlignment="Center" Margin="140,159,140,158" />
+        <Button x:Name="IncrementCounterButton" Content="Press Me" FontSize="16" Command="{Binding ButtonPress}" Margin="319,311,319,76" />
     </Grid>
 </Window>
