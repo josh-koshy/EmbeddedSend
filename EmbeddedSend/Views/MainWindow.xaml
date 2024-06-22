@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Menu x:Name="Menu" >
+            <MenuItem Header="Menu">
+                <MenuItem Header="Settings" Command="{Binding SettingsMenuPress}"/>
+                <MenuItem Header="About" Command="{Binding AboutMenuPress}"/>
+            </MenuItem>
+        </Menu>
+        
+        
         <TextBlock x:Name="HelloWorld_Text" FontSize="20" Text="{Binding TestString}" TextAlignment="Center" Margin="140,159,140,158" />
         <Button x:Name="IncrementCounterButton" Content="Press Me" FontSize="16" Command="{Binding ButtonPress}" Margin="319,311,319,76" />
     </Grid>
