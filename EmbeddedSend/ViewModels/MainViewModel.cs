@@ -10,7 +10,6 @@ using System.Windows.Input;
 using CommunityToolkit.Mvvm;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using EmbeddedSend.Views;
 
 namespace EmbeddedSend.ViewModels
 {
@@ -22,25 +21,26 @@ namespace EmbeddedSend.ViewModels
         public ICommand SettingsMenuPress { get; }
         public ICommand AboutMenuPress { get; }
 
+        public EventHandler SettingsMenuEvent;
+        public EventHandler AboutMenuEvent;
+
+        protected void OnAboutMenu(EventArgs e)
+        {
+            AboutMenuEvent?.Invoke(this, e);
+        }
+
+        protected void OnSettingsMenu(EventArgs e)
+        {
+            SettingsMenuEvent?.Invoke(this, e);
+        }
+
         public MainViewModel()
         {
             ButtonPress = new RelayCommand(IncrementHelloWorldNumber);
-            SettingsMenuPress = new RelayCommand(OnSettingsMenuPress);
-            AboutMenuPress = new RelayCommand(OnAboutMenuPress);
+            SettingsMenuPress = new RelayCommand(() => OnSettingsMenu(EventArgs.Empty));
+            AboutMenuPress = new RelayCommand(() => OnAboutMenu(EventArgs.Empty));
         }
 
-
-
-        public void OnSettingsMenuPress()
-        {
-            Debug.WriteLine("Settings Menu Pressed.");
-            SettingsWindow settingsWindow = new SettingsWindow();
-            settingsWindow.ShowDialog();
-        }
-        public void OnAboutMenuPress()
-        {
-            Debug.WriteLine("About Menu Pressed");
-        }
         private void IncrementHelloWorldNumber()
         {
             _testStringInt++;
